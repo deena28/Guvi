@@ -10,6 +10,15 @@
         $email = $cred->email;
         $stmt->execute();
         $result = $stmt->get_result();
-        echo json_encode($result->fetch_assoc());
+        $resultset = $result->fetch_assoc();
+        if($resultset->password == $cred->password){
+            $redis = new Redis();
+            $redis->connect('127.0.0.1',6379);
+            $redis->set("isLoggedIn",true);
+            $redis->set("loginid",$resultset->id);
+            echo $resultset->id;
+        }else{
+            echo 0;
+        }
     }
 ?>
