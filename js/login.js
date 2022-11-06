@@ -1,4 +1,12 @@
-function signin(){
+function log(val){
+    if (val == 0){
+        
+    }else{
+
+    }
+}
+
+function signin(login){
     let email = document.getElementById("inputEmail").value
     let password = document.getElementById("inputPassword").value
     console.log(email)
@@ -12,12 +20,12 @@ function signin(){
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
     xhttp.onreadystatechange = function(){
         if( xhttp.readyState == 4 && xhttp.status == 200){
-            console.log(xhttp.response)
+            if(xhttp.response==0){
+
+            }else{
+                window.location.replace("localhost/Guvi/ /profile.php")
+            }
         }
     }
     xhttp.send("cred="+login)
-    // let data = xhttp.responseText;
-    // console.log(data)
-    // if(data==0)
-    //     window.open("profile.html")
 }
