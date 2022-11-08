@@ -1,31 +1,31 @@
-function log(val){
-    if (val == 0){
-        
-    }else{
+function log(val) {
+    if (val == 0) {
+
+    } else {
 
     }
 }
 
-function signin(login){
+function signin(login) {
     let email = document.getElementById("inputEmail").value
     let password = document.getElementById("inputPassword").value
     console.log(email)
     let logincred = {
-        email:email,
-        password:password
+        email: email,
+        password: password
     }
     let login = JSON.stringify(logincred)
     let xhttp = new XMLHttpRequest()
-    xhttp.open("POST","php/login.php",true)
+    xhttp.open("POST", "php/login.php", true)
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    xhttp.onreadystatechange = function(){
-        if( xhttp.readyState == 4 && xhttp.status == 200){
-            if(xhttp.response==0){
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            if (xhttp.response == 0) {
 
-            }else{
-                window.location.replace("localhost/Guvi/ /profile.php")
+            } else {
+                window.location.replace("profile.php")
             }
         }
     }
-    xhttp.send("cred="+login)
+    xhttp.send("cred=" + login)
 }
