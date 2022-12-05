@@ -33,12 +33,13 @@ function signup() {
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             console.log(xhttp.response)
-            // if (xhttp.response == 0) {
+            if (xhttp.response == 0) {
+                    window.location.replace("login.php")
+                } else {
 
-            // } else {
-
-            //     window.location.replace("../")
-            // }
+                 alert("Not Registered Properly");
+                    
+                }
         }
     }
 
